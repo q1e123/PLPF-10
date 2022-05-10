@@ -10,13 +10,14 @@ export class AppComponent {
   title = 'PLPF-10';
   // State
   employeeList: string[] = [];
-  employeeName = '';
+  addEmployeeName = '';
+  removeEmployeeName = '';
 
   // Events
   addEmployee() {
-    this.employeeList.push(this.employeeName);
+    this.employeeList.push(this.addEmployeeName);
   }
   removeEmployee() {
-    this.employeeList = _.without(this.employeeList, this.employeeName);
+    this.employeeList = _.without(this.employeeList, this.removeEmployeeName);
   }
 }
