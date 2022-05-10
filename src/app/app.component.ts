@@ -16,12 +16,20 @@ export class AppComponent {
   removeEmployeeName = '';
   checkEmployeeName = '';
   filterEmployeeName = '';
+
+  ngOnInit() {
+    const savedEmployees = localStorage.getItem('employeeList');
+    this.employeeList = JSON.parse(savedEmployees as string) || [];
+  }
+
   // Events
   addEmployee() {
     this.employeeList.push(this.addEmployeeName);
+    localStorage.setItem('employeeList', JSON.stringify(this.employeeList));
   }
   removeEmployee() {
     this.employeeList = _.without(this.employeeList, this.removeEmployeeName);
+    localStorage.setItem('employeeList', JSON.stringify(this.employeeList));
   }
   checkEmployee(){
     if(_.contains(this.employeeList, this.checkEmployeeName)){
