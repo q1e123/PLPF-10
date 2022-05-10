@@ -29,6 +29,19 @@
     
   </div>
 </div>
+<div class="row">
+  <div class="col-sm">
+    <form (ngSubmit)="checkEmployee()">
+
+      <!-- Binding -->
+      <input class="form-control" name="employee-name" [(ngModel)]="checkEmployeeName">
+      
+      <input type="submit" class="btn-sm btn-primary" value="Check">
+    
+    </form>
+  </div>
+</div>
+
 
 <h2>Employee List</h2>
 <ul>

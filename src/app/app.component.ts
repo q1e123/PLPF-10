@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import * as _ from 'underscore';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,7 @@ export class AppComponent {
   employeeList: string[] = [];
   addEmployeeName = '';
   removeEmployeeName = '';
-
+  checkEmployeeName = '';
   // Events
   addEmployee() {
     this.employeeList.push(this.addEmployeeName);
@@ -20,4 +22,12 @@ export class AppComponent {
   removeEmployee() {
     this.employeeList = _.without(this.employeeList, this.removeEmployeeName);
   }
+  checkEmployee(){
+    if(_.contains(this.employeeList, this.checkEmployeeName)){
+      Swal.fire('Found!', 'Employee ' + this.checkEmployeeName + ' was found!', 'success');
+    } else {      
+      Swal.fire('Not found!', 'Employee ' + this.checkEmployeeName + ' was not found!', 'error');
+    }
+  }
+  
 }
