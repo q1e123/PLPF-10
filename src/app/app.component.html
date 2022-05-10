@@ -8,7 +8,7 @@
 <h2>Employee Management</h2>
 
 <div class="row">
-  <div class="col-sm">
+    <h3>Add Employee</h3>
     <form (ngSubmit)="addEmployee()">
 
       <!-- Binding -->
@@ -17,8 +17,9 @@
       <input type="submit" class="btn-sm btn-primary" value="Add">
     
     </form>
-  </div>
-  <div class="col-sm">
+</div> 
+<div class="row">
+  <h3>Add Employee</h3>
     <form (ngSubmit)="removeEmployee()">
 
       <!-- Binding -->
@@ -27,10 +28,9 @@
       <input type="submit" class="btn-sm btn-danger" value="Remove" >
     </form>
     
-  </div>
 </div>
 <div class="row">
-  <div class="col-sm">
+  <h3>Check Employee</h3>
     <form (ngSubmit)="checkEmployee()">
 
       <!-- Binding -->
@@ -39,12 +39,20 @@
       <input type="submit" class="btn-sm btn-primary" value="Check">
     
     </form>
-  </div>
+</div>
+<div class="row">
+  <h3>Filter</h3>
+  <form>
+
+    <!-- Binding -->
+    <input class="form-control" name="employee-name" [(ngModel)]="filterEmployeeName">
+        
+  </form>
 </div>
 
 
 <h2>Employee List</h2>
-<ul>
-  <li *ngFor="let employee of employeeList">{{employee}}</li>
+<ul  *ngFor="let employee of employeeList">
+  <li *ngIf="employee.includes(filterEmployeeName)" >{{employee}}</li>
 </ul>
 </div>

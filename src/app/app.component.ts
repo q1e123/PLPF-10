@@ -15,6 +15,7 @@ export class AppComponent {
   addEmployeeName = '';
   removeEmployeeName = '';
   checkEmployeeName = '';
+  filterEmployeeName = '';
   // Events
   addEmployee() {
     this.employeeList.push(this.addEmployeeName);
@@ -29,5 +30,4 @@ export class AppComponent {
       Swal.fire('Not found!', 'Employee ' + this.checkEmployeeName + ' was not found!', 'error');
     }
   }
-  
 }
