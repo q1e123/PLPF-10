@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PLPF-10';
+  // State
+  employeeList: string[] = [];
+  employeeName = '';
+
+  // Events
+  addEmployee() {
+    this.employeeList.push(this.employeeName);
+  }
 }
