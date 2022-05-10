@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-root',
@@ -14,5 +15,8 @@ export class AppComponent {
   // Events
   addEmployee() {
     this.employeeList.push(this.employeeName);
+  }
+  removeEmployee() {
+    this.employeeList = _.without(this.employeeList, this.employeeName);
   }
 }
